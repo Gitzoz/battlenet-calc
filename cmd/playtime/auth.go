@@ -50,7 +50,7 @@ func (s *tokenService) GetToken() ApiToken {
 func RetrieveApiToken(config AuthConfig) ApiToken {
 	client := &http.Client{}
 	data := url.Values{}
-	data.Add("grant_type", "client_credentials")
+	data.Add("grant_type", config.grantType)
 
 	req, err := http.NewRequest(http.MethodPost, config.tokenUrl, strings.NewReader(data.Encode()))
 	if err != nil {

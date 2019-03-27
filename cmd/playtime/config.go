@@ -6,11 +6,11 @@ import (
 	"os"
 )
 
-
 type AuthConfig struct {
 	clientSecret string
-	clientId	 string
-	tokenUrl	 string
+	clientId     string
+	tokenUrl     string
+	grantType    string
 }
 
 func loadConfig(configLocation *string) AuthConfig {
@@ -26,6 +26,7 @@ func loadConfig(configLocation *string) AuthConfig {
 		authSection.Key("CLIENT_SECRET").String(),
 		authSection.Key("CLIENT_ID").String(),
 		authSection.Key("TOKEN_URL").String(),
+		authSection.Key("GRANT_TYPE").String(),
 	}
 
 	return authConfig
