@@ -15,5 +15,7 @@ func main() {
 	flag.Parse()
 
 	authConfig := loadConfig(configLocationPtr)
-	auth(authConfig)
+	tokenService := NewApiTokenService(authConfig)
+	token := tokenService.GetToken()
+	fmt.Println(token)
 }
